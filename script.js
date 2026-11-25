@@ -83,7 +83,7 @@ const mk=p=>MK.find(m=>m.kode===p.kode&&m.kelas===p.kelas)||MK.find(m=>m.kode===
 const fk=l=>l.filter(p=>!state.fk||p.kelas===state.fk);
 const pilihKelas=()=>`<label class="row" style="gap:6px;font-size:13px">Kelas <select id="fkelas" style="width:auto"><option value="">Semua kelas</option>${KELAS.map(k=>`<option ${k===state.fk?"selected":""}>${k}</option>`).join("")}</select></label>`;
 const pill=st=>({menunggu:'<span class="pill p-wait">Menunggu keputusan</span>',voting:'<span class="pill p-vote">Voting berjalan</span>',disetujui:'<span class="pill p-ok">Disetujui</span>',ditolak:'<span class="pill p-bad">Ditolak</span>'}[st]);
-const fr=(...ids)=>`<div class="row">${ids.map(i=>`<span class="frtag">${i}</span>`).join("")}</div>`;
+const fr=()=>"";// label FR disembunyikan dari tampilan
 // ===== Notifikasi pop-up di layar HP/laptop (FR-01) =====
 const notifOK=()=>{try{return "Notification" in window}catch(e){return false}};
 const notifIzin=()=>notifOK()?Notification.permission:"tidak-didukung";
@@ -166,7 +166,6 @@ function loginView(){return `
       <label for="lp">Password<input id="lp" type="password" required placeholder="••••••••"></label>
       <p class="note" id="lerr" hidden style="color:var(--bad)">Username dan password wajib diisi.</p>
       <button class="btn" type="submit">Masuk</button>
-      <p class="note">Isi nama bebas. Password untuk semua peran: <b>sepakat123</b></p>
     </form>
   </div>`}
 function bindLogin(){
@@ -174,7 +173,7 @@ function bindLogin(){
   $("#lf").addEventListener("submit",e=>{e.preventDefault();
     const u=$("#lu").value.trim(),pw=$("#lp").value,le=$("#lerr");
     if(!u||!pw){le.textContent="Nama dan password wajib diisi.";le.hidden=false;return}
-    if(pw!==PASSWORD){le.textContent="Password salah. Gunakan sepakat123.";le.hidden=false;return}
+    if(pw!==PASSWORD){le.textContent="Nama atau password salah.";le.hidden=false;return}
     USERS[pickRole].name=u;
     const k=pickRole==="mahasiswa"?$("#lk").value:null;if(k)USERS.mahasiswa.kelas=k;
     setSesi({u,r:pickRole,k});
