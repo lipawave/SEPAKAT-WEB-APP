@@ -1,12 +1,11 @@
 // ===== Data contoh (sample) =====
 const USERS={
-  dosen:{name:"Siska, M.Kom.",id:"NIDN 0412038801",label:"Dosen"},
-  mahasiswa:{name:"Salwa Khalipa",id:"NPM 2510631250013",label:"Mahasiswa",kelas:"SI-3A"},
+  dosen:{name:"Siska, M.Kom.",id:"Dosen",label:"Dosen"},
+  mahasiswa:{name:"Salwa Khalipa",id:"Mahasiswa",label:"Mahasiswa",kelas:"SI-3A"},
   admin:{name:"Bagian Akademik Fakultas",id:"Admin Fakultas",label:"Fakultas/Admin"}
 };
 const KELAS=["SI-3A","SI-3B","SI-3C"];
 const PASSWORD="sepakat123";
-const AKUN={"0412038801":["dosen","Siska, M.Kom."],"admin":["admin","Bagian Akademik Fakultas"],"2510631250004":["mahasiswa","Anisa Putri Amelia"],"2510631250007":["mahasiswa","Line Budiarti"],"2510631250010":["mahasiswa","Hadid Kurnia Fadillah"],"2510631250013":["mahasiswa","Salwa Khalipa"],"2510631250016":["mahasiswa","Salsabila Fadillah Putri"],"2510631250019":["mahasiswa","Marsya Bella Puspita Rizky"],"2510631250022":["mahasiswa","Meyla Sabrina"],"2510631250025":["mahasiswa","Aqila Maulana Ikhsan"],"2510631250028":["mahasiswa","Beby Naila Putri"],"2510631250031":["mahasiswa","Fajar Raihan Hanafi"],"2510631250037":["mahasiswa","Muhammad Aji Nur Majid"],"2510631250040":["mahasiswa","Mukhlash Hisyam"],"2510631250043":["mahasiswa","Reihan Alfa Setiawan"],"2510631250046":["mahasiswa","Savina Hayati Ramadhani"],"2510631250049":["mahasiswa","Sofian"],"2510631250052":["mahasiswa","Alma Laila"],"2510631250055":["mahasiswa","Azkiya Aulia Hidayah"],"2510631250058":["mahasiswa","Emira Dahilvis"],"2510631250061":["mahasiswa","Fathu Zaky Nugraha"],"2510631250064":["mahasiswa","Junaedi Adi Prasetyo"],"2510631250067":["mahasiswa","Lutfi Radithia Firmansyah"],"2510631250070":["mahasiswa","Muhamad Irfan Zainudin"],"2510631250073":["mahasiswa","Naufal Fathir Hidayat"],"2510631250001":["mahasiswa","Nazwa Cindy Cantika"]};
 
 
 try{const k=localStorage.getItem("sepakat-kelas");if(KELAS.includes(k))USERS.mahasiswa.kelas=k}catch(e){}
@@ -118,9 +117,9 @@ function sesi(){try{return JSON.parse(sessionStorage.getItem("sepakat-sesi")||"n
 function setSesi(v){window._sesi=v;try{v?sessionStorage.setItem("sepakat-sesi",JSON.stringify(v)):sessionStorage.removeItem("sepakat-sesi")}catch(e){}}
 function route(){
   const h=location.hash.slice(1);
-  const ss=sesi();if(ss&&AKUN[ss.u]){const ak=AKUN[ss.u];USERS[ak[0]].name=ak[1];USERS[ak[0]].id=(ak[0]==="mahasiswa"?"NPM ":ak[0]==="dosen"?"NIDN ":"")+ss.u}
+  const ss=sesi();if(ss&&USERS[ss.r]){USERS[ss.r].name=ss.u;if(ss.r==="mahasiswa"&&KELAS.includes(ss.k))USERS.mahasiswa.kelas=ss.k}
   const [r,...v]=h.split("-");
-  if(USERS[r]&&ss&&AKUN[ss.u]&&AKUN[ss.u][0]===r){state.user=r;state.view=v.join("-")||"dashboard";if(!NAV[r].some(n=>n[0]===state.view))state.view="dashboard"}
+  if(USERS[r]&&ss&&ss.r===r){state.user=r;state.view=v.join("-")||"dashboard";if(!NAV[r].some(n=>n[0]===state.view))state.view="dashboard"}
   else state.user=null;
   render();
 }
@@ -162,24 +161,23 @@ function loginView(){return `
     <form class="panel" id="lf" novalidate>
       <h2 style="font-size:17px">Masuk ke sistem</h2>
       <div class="roles">${["dosen","mahasiswa","admin"].map(r=>`<button type="button" data-r="${r}" class="${r===pickRole?"on":""}">${USERS[r].label}</button>`).join("")}</div>
-      <label for="lu">Username / NIDN / NPM<input id="lu" required placeholder="contoh: ${pickRole==="mahasiswa"?"2510631250013":pickRole==="dosen"?"0412038801":"admin"}" autocomplete="username"></label>
+      <label for="lu">Nama<input id="lu" required placeholder="contoh: ${pickRole==="mahasiswa"?"Salwa Khalipa":pickRole==="dosen"?"Siska, M.Kom.":"Bagian Akademik"}" autocomplete="username"></label>
+      ${pickRole==="mahasiswa"?`<label for="lk">Kelas<select id="lk">${KELAS.map(k=>`<option>${k}</option>`).join("")}</select></label>`:""}
       <label for="lp">Password<input id="lp" type="password" required placeholder="••••••••"></label>
       <p class="note" id="lerr" hidden style="color:var(--bad)">Username dan password wajib diisi.</p>
       <button class="btn" type="submit">Masuk</button>
-      <p class="note">Hanya akun terdaftar. Password: <b>sepakat123</b>. Dosen 0412038801 · Mahasiswa NPM kelas SI-3A · Fakultas admin</p>
+      <p class="note">Isi nama bebas. Password untuk semua peran: <b>sepakat123</b></p>
     </form>
   </div>`}
 function bindLogin(){
   document.querySelectorAll(".roles button").forEach(b=>b.onclick=()=>{pickRole=b.dataset.r;render()});
   $("#lf").addEventListener("submit",e=>{e.preventDefault();
     const u=$("#lu").value.trim(),pw=$("#lp").value,le=$("#lerr");
-    if(!u||!pw){le.textContent="Username dan password wajib diisi.";le.hidden=false;return}
-    const ak=AKUN[u];
-    if(!ak||pw!==PASSWORD){le.textContent="Username atau password salah.";le.hidden=false;return}
-    if(ak[0]!==pickRole){le.textContent="Akun ini bukan akun "+USERS[pickRole].label+".";le.hidden=false;return}
-    USERS[pickRole].name=ak[1];USERS[pickRole].id=(pickRole==="mahasiswa"?"NPM ":pickRole==="dosen"?"NIDN ":"")+u;
-    if(pickRole==="mahasiswa")USERS.mahasiswa.kelas="SI-3A";
-    setSesi({u});
+    if(!u||!pw){le.textContent="Nama dan password wajib diisi.";le.hidden=false;return}
+    if(pw!==PASSWORD){le.textContent="Password salah. Gunakan sepakat123.";le.hidden=false;return}
+    USERS[pickRole].name=u;
+    const k=pickRole==="mahasiswa"?$("#lk").value:null;if(k)USERS.mahasiswa.kelas=k;
+    setSesi({u,r:pickRole,k});
     go(pickRole,"dashboard");toast(`Masuk sebagai ${USERS[pickRole].label}${pickRole==="mahasiswa"?" kelas "+USERS.mahasiswa.kelas:""}`)});
 }
 
