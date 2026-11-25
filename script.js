@@ -4,31 +4,41 @@ const USERS={
   mahasiswa:{name:"Salwa Khalipa",id:"NPM 2510631250013",label:"Mahasiswa",kelas:"SI-3A"},
   admin:{name:"Bagian Akademik Fakultas",id:"Admin Fakultas",label:"Fakultas/Admin"}
 };
-const KELAS=["SI-3A"];
+const KELAS=["SI-3A","SI-3B","SI-3C"];
 const PASSWORD="sepakat123";
 const AKUN={"0412038801":["dosen","Siska, M.Kom."],"admin":["admin","Bagian Akademik Fakultas"],"2510631250004":["mahasiswa","Anisa Putri Amelia"],"2510631250007":["mahasiswa","Line Budiarti"],"2510631250010":["mahasiswa","Hadid Kurnia Fadillah"],"2510631250013":["mahasiswa","Salwa Khalipa"],"2510631250016":["mahasiswa","Salsabila Fadillah Putri"],"2510631250019":["mahasiswa","Marsya Bella Puspita Rizky"],"2510631250022":["mahasiswa","Meyla Sabrina"],"2510631250025":["mahasiswa","Aqila Maulana Ikhsan"],"2510631250028":["mahasiswa","Beby Naila Putri"],"2510631250031":["mahasiswa","Fajar Raihan Hanafi"],"2510631250037":["mahasiswa","Muhammad Aji Nur Majid"],"2510631250040":["mahasiswa","Mukhlash Hisyam"],"2510631250043":["mahasiswa","Reihan Alfa Setiawan"],"2510631250046":["mahasiswa","Savina Hayati Ramadhani"],"2510631250049":["mahasiswa","Sofian"],"2510631250052":["mahasiswa","Alma Laila"],"2510631250055":["mahasiswa","Azkiya Aulia Hidayah"],"2510631250058":["mahasiswa","Emira Dahilvis"],"2510631250061":["mahasiswa","Fathu Zaky Nugraha"],"2510631250064":["mahasiswa","Junaedi Adi Prasetyo"],"2510631250067":["mahasiswa","Lutfi Radithia Firmansyah"],"2510631250070":["mahasiswa","Muhamad Irfan Zainudin"],"2510631250073":["mahasiswa","Naufal Fathir Hidayat"],"2510631250001":["mahasiswa","Nazwa Cindy Cantika"]};
 
 
 try{const k=localStorage.getItem("sepakat-kelas");if(KELAS.includes(k))USERS.mahasiswa.kelas=k}catch(e){}
 const MK=[
-  {kode:"SYS61511",nama:"Organisasi dan Arsitektur Komputer",kelas:"SI-3A",hari:"Senin",jam:"10.00-12.30",ruang:"FASILKOM LAB DASAR 2",peserta:24},
-  {kode:"SYS61514",nama:"Sistem Informasi Manajemen",kelas:"SI-3A",hari:"Senin",jam:"15.00-17.30",ruang:"FASILKOM 4.77-3",peserta:24},
-  {kode:"SYS61643",nama:"Manajemen Proses Bisnis",kelas:"SI-3A",hari:"Selasa",jam:"10.00-12.30",ruang:"FASILKOM 4.80-6",peserta:24},
-  {kode:"SYS61642",nama:"Sistem Informasi Akuntansi dan Keuangan",kelas:"SI-3A",hari:"Rabu",jam:"10.00-12.30",ruang:"FASILKOM 4.80-6",peserta:24},
-  {kode:"SYS61505",nama:"Sistem Operasi",kelas:"SI-3A",hari:"Rabu",jam:"15.00-17.30",ruang:"FASILKOM 4.78-4 (A)",peserta:24},
-  {kode:"SYS61613",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3A",hari:"Kamis",jam:"07.30-10.00",ruang:"FASILKOM LAB LANJUT 2",peserta:24},
-  {kode:"SYS61516",nama:"Pemrograman Berorientasi Objek",kelas:"SI-3A",hari:"Kamis",jam:"10.00-12.30",ruang:"FASILKOM LAB DASAR 1",peserta:24}
+  {kode:"SYS61511",nama:"Organisasi dan Arsitektur Komputer",kelas:"SI-3A",hari:"Senin",jam:"10.00-12.30",ruang:"Lab Dasar 2",peserta:24},
+  {kode:"SYS61514",nama:"Sistem Informasi Manajemen",kelas:"SI-3A",hari:"Senin",jam:"15.00-17.30",ruang:"Ruang Kelas 77",peserta:24},
+  {kode:"SYS61643",nama:"Manajemen Proses Bisnis",kelas:"SI-3A",hari:"Selasa",jam:"10.00-12.30",ruang:"Ruang Kelas 80",peserta:24},
+  {kode:"SYS61642",nama:"Sistem Informasi Akuntansi dan Keuangan",kelas:"SI-3A",hari:"Rabu",jam:"10.00-12.30",ruang:"Ruang Kelas 80",peserta:24},
+  {kode:"SYS61505",nama:"Sistem Operasi",kelas:"SI-3A",hari:"Rabu",jam:"15.00-17.30",ruang:"Ruang Kelas 78",peserta:24},
+  {kode:"SYS61613",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3A",hari:"Kamis",jam:"07.30-10.00",ruang:"Lab Lanjut 2",peserta:24},
+  {kode:"SYS61516",nama:"Pemrograman Berorientasi Objek",kelas:"SI-3A",hari:"Kamis",jam:"10.00-12.30",ruang:"Lab Dasar 1",peserta:24},
+  {kode:"SYS61613",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3B",hari:"Senin",jam:"15.00-17.30",ruang:"Ruang Kelas 78",peserta:25},
+  {kode:"SYS61643",nama:"Manajemen Proses Bisnis",kelas:"SI-3B",hari:"Selasa",jam:"10.00-12.30",ruang:"Ruang Kelas 77",peserta:25},
+  {kode:"SYS61642",nama:"Sistem Informasi Akuntansi dan Keuangan",kelas:"SI-3B",hari:"Rabu",jam:"07.30-10.00",ruang:"Lab Dasar 2",peserta:25},
+  {kode:"SYS61613",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3C",hari:"Senin",jam:"15.00-17.30",ruang:"Lab Lanjut 2",peserta:25},
+  {kode:"SYS61514",nama:"Sistem Informasi Manajemen",kelas:"SI-3C",hari:"Kamis",jam:"12.30-15.00",ruang:"Ruang Kelas 79",peserta:25}
 ];
 const JAM=["07.30-10.00","10.00-12.30","12.30-15.00","15.00-17.30"];
-const RUANG=["FASILKOM LAB DASAR 1","FASILKOM LAB DASAR 2","FASILKOM LAB LANJUT 2","FASILKOM 4.77-3","FASILKOM 4.78-4 (A)","FASILKOM 4.80-6"];
-// Jadwal yang sudah terisi: jadwal asli SI-3A + contoh kelas lain
-const TERISI={
-  "Senin":{"FASILKOM LAB DASAR 2":{"10.00-12.30":"Organisasi dan Arsitektur Komputer SI-3A"},"FASILKOM 4.77-3":{"15.00-17.30":"Sistem Informasi Manajemen SI-3A"},"FASILKOM 4.80-6":{"07.30-10.00":"Kuliah kelas SI-3B"}},
-  "Selasa":{"FASILKOM 4.80-6":{"10.00-12.30":"Manajemen Proses Bisnis SI-3A"},"FASILKOM LAB DASAR 1":{"07.30-10.00":"Praktikum kelas SI-3B"}},
-  "Rabu":{"FASILKOM 4.80-6":{"10.00-12.30":"Sistem Informasi Akuntansi dan Keuangan SI-3A"},"FASILKOM 4.78-4 (A)":{"15.00-17.30":"Sistem Operasi SI-3A"},"FASILKOM LAB LANJUT 2":{"12.30-15.00":"Praktikum kelas SI-3C"}},
-  "Kamis":{"FASILKOM LAB LANJUT 2":{"07.30-10.00":"Analisis dan Perancangan Sistem Informasi SI-3A"},"FASILKOM LAB DASAR 1":{"10.00-12.30":"Pemrograman Berorientasi Objek SI-3A"},"FASILKOM 4.77-3":{"12.30-15.00":"Kuliah kelas SI-3B"}},
-  "Jumat":{"FASILKOM 4.80-6":{"07.30-10.00":"Kuliah kelas SI-3C"},"FASILKOM LAB DASAR 2":{"12.30-15.00":"Praktikum kelas SI-3B"}}
+// Nama ruang mengikuti jadwal FASILKOM (beritakelas.marooners.my.id). Ruang Kelas 77 = 4.77-3, 78 = 4.78-4 (A), 80 = 4.80-6 di SIAKAD.
+const RUANG=["Lab Lanjut 1","Lab Lanjut 2","Lab Dasar 1","Lab Dasar 2","Ruang Kelas 75","Ruang Kelas 76","Ruang Kelas 77","Ruang Kelas 78","Ruang Kelas 79","Ruang Kelas 80"];
+// Ruang yang sudah terpakai kelas lain (SI-1, SI-5, SI-7). Jumat memakai jam 07.00/09.30/13.00/15.30, dibulatkan ke slot terdekat.
+const LAIN={
+  "Senin":[["Lab Lanjut 2","07.30-10.00","Pengantar Cloud Computing SI-5A"],["Lab Dasar 2","07.30-10.00","Pemrograman Web Framework SI-5C"],["Ruang Kelas 78","07.30-10.00","Pengantar Big Data SI-5C"],["Ruang Kelas 79","07.30-10.00","Pengantar Teknologi Informasi SI-1B"],["Ruang Kelas 80","07.30-10.00","Pendidikan Agama SI-1A"],["Lab Lanjut 2","12.30-15.00","ERP SI-5D"],["Lab Dasar 2","12.30-15.00","Algoritma dan Dasar Pemrograman SI-1A"],["Ruang Kelas 76","12.30-15.00","Konsep Sistem Informasi SI-1C"],["Ruang Kelas 80","12.30-15.00","Pengantar Blockchain untuk Bisnis SI-5A"],["Lab Dasar 2","15.00-17.30","Algoritma dan Dasar Pemrograman SI-1C"],["Lab Lanjut 1","15.00-17.30","Matematika Diskrit SI-1B"],["Ruang Kelas 75","15.00-17.30","Pengantar Cloud Computing SI-5B"],["Ruang Kelas 79","15.00-17.30","Pengantar Big Data SI-5A"],["Ruang Kelas 80","15.00-17.30","Matematika Diskrit SI-1A"]],
+  "Selasa":[["Ruang Kelas 78","07.30-10.00","Pengantar Teknologi Informasi SI-1C"],["Ruang Kelas 80","07.30-10.00","Transformasi Digital SI-1B"],["Ruang Kelas 78","10.00-12.30","Pengantar Teknologi Informasi SI-1A"],["Ruang Kelas 78","12.30-15.00","Etika Profesi SI-5C"],["Ruang Kelas 79","12.30-15.00","Pengantar Kecerdasan Buatan SI-5A"],["Ruang Kelas 80","12.30-15.00","Pengantar Blockchain untuk Bisnis SI-5D"]],
+  "Rabu":[["Ruang Kelas 78","07.30-10.00","Pengantar Cloud Computing SI-5D"],["Ruang Kelas 80","07.30-10.00","Pengantar Big Data SI-5B"],["Ruang Kelas 75","10.00-12.30","ERP SI-5B"]],
+  "Kamis":[["Lab Lanjut 1","07.30-10.00","Algoritma dan Dasar Pemrograman SI-1B"],["Ruang Kelas 76","07.30-10.00","Pengantar Kecerdasan Buatan SI-5B"],["Ruang Kelas 80","07.30-10.00","Pengantar Cloud Computing SI-5C"],["Ruang Kelas 79","10.00-12.30","Transformasi Digital SI-1C"],["Ruang Kelas 80","10.00-12.30","Pengantar Blockchain untuk Bisnis SI-5B"],["Ruang Kelas 80","12.30-15.00","Bahasa Indonesia SI-1C"]],
+  "Jumat":[["Ruang Kelas 75","07.30-10.00","Pemrograman Animasi dan Multimedia SI-7A"],["Ruang Kelas 77","07.30-10.00","Hukum Paten dan Merk SI-7B"],["Ruang Kelas 77","10.00-12.30","Kapita Selekta SI-7B"],["Ruang Kelas 78","10.00-12.30","Pemrograman Animasi dan Multimedia SI-7C"],["Ruang Kelas 79","10.00-12.30","Hukum Paten dan Merk SI-7A"],["Ruang Kelas 77","12.30-15.00","Kapita Selekta SI-7A"],["Ruang Kelas 78","12.30-15.00","Pemrograman Animasi dan Multimedia SI-7B"],["Ruang Kelas 79","12.30-15.00","Kapita Selekta SI-7C"],["Ruang Kelas 79","15.00-17.30","Etika Profesi SI-7B"],["Ruang Kelas 80","15.00-17.30","Hukum Paten dan Merk SI-7C"]]
 };
+const TERISI={Senin:{},Selasa:{},Rabu:{},Kamis:{},Jumat:{}};
+const isi=(h,r,j,t)=>{(TERISI[h][r]=TERISI[h][r]||{})[j]=t};
+MK.forEach(m=>isi(m.hari,m.ruang,m.jam,`${m.nama} ${m.kelas}`));
+Object.entries(LAIN).forEach(([h,l])=>l.forEach(([r,j,t])=>isi(h,r,j,t)));
 const terisi=(h,r,j)=>TERISI[h]?.[r]?.[j]||null;
 // ===== Tanggal (hari ini asli dari perangkat) =====
 const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
@@ -36,17 +46,19 @@ const ymd=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${Str
 const tglPlus=n=>{const d=new Date(TODAY);d.setDate(d.getDate()+n);return ymd(d)};
 const fmtTgl=t=>{const [y,m,d]=t.split("-");return `${d}-${m}-${y}`};
 let state={
-  user:null,view:null,
+  user:null,view:null,fk:"",
   pengajuan:[
-    {id:"PJ-003",kode:"SYS61516",kelas:"SI-3A",lama:"Kamis 10.00-12.30",baru:"Senin 12.30-15.00",ruang:"FASILKOM LAB DASAR 1",tgl:tglPlus(5),alasan:"Dosen menjadi pembicara workshop.",status:"voting",setuju:10,tolak:8,pemilih:24,ke:1,keberatan:[],myVote:null},
-    {id:"PJ-001",kode:"SYS61613",kelas:"SI-3A",lama:"Kamis 07.30-10.00",baru:"Selasa 12.30-15.00",ruang:"FASILKOM LAB LANJUT 2",tgl:tglPlus(10),alasan:"Dosen mengikuti seminar nasional pada hari Kamis.",status:"voting",setuju:13,tolak:2,pemilih:24,ke:1,keberatan:[{nama:"Siti N.",isi:"Selasa siang bentrok dengan kegiatan organisasi."}],myVote:null},
-    {id:"PJ-002",kode:"SYS61505",kelas:"SI-3A",lama:"Rabu 15.00-17.30",baru:"Jumat 10.00-12.30",ruang:"FASILKOM 4.78-4 (A)",tgl:tglPlus(12),alasan:"Ruang dipakai ujian sertifikasi.",status:"menunggu",setuju:0,tolak:0,pemilih:24,ke:1,keberatan:[],myVote:null},
-    {id:"PJ-000",kode:"SYS61514",kelas:"SI-3A",lama:"Senin 15.00-17.30",baru:"Selasa 15.00-17.30",ruang:"FASILKOM 4.77-3",tgl:tglPlus(-3),alasan:"Rapat prodi.",status:"disetujui",setuju:20,tolak:3,pemilih:24,ke:1,keberatan:[],myVote:"setuju"}
+    {id:"PJ-003",kode:"SYS61516",kelas:"SI-3A",lama:"Kamis 10.00-12.30",baru:"Senin 12.30-15.00",ruang:"Lab Dasar 1",tgl:tglPlus(5),alasan:"Dosen menjadi pembicara workshop.",status:"voting",setuju:10,tolak:8,pemilih:24,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-001",kode:"SYS61613",kelas:"SI-3A",lama:"Kamis 07.30-10.00",baru:"Selasa 12.30-15.00",ruang:"Lab Lanjut 2",tgl:tglPlus(10),alasan:"Dosen mengikuti seminar nasional pada hari Kamis.",status:"voting",setuju:13,tolak:2,pemilih:24,ke:1,keberatan:[{nama:"Siti N.",isi:"Selasa siang bentrok dengan kegiatan organisasi."}],myVote:null},
+    {id:"PJ-002",kode:"SYS61505",kelas:"SI-3A",lama:"Rabu 15.00-17.30",baru:"Jumat 10.00-12.30",ruang:"Ruang Kelas 80",tgl:tglPlus(12),alasan:"Ruang dipakai ujian sertifikasi.",status:"menunggu",setuju:0,tolak:0,pemilih:24,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-005",kode:"SYS61514",kelas:"SI-3C",lama:"Kamis 12.30-15.00",baru:"Rabu 10.00-12.30",ruang:"Ruang Kelas 77",tgl:tglPlus(9),alasan:"Dosen menguji sidang skripsi.",status:"voting",setuju:9,tolak:4,pemilih:25,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-004",kode:"SYS61613",kelas:"SI-3B",lama:"Senin 15.00-17.30",baru:"Kamis 12.30-15.00",ruang:"Lab Lanjut 2",tgl:tglPlus(13),alasan:"Dosen rapat akreditasi prodi.",status:"menunggu",setuju:0,tolak:0,pemilih:25,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-000",kode:"SYS61514",kelas:"SI-3A",lama:"Senin 15.00-17.30",baru:"Selasa 15.00-17.30",ruang:"Ruang Kelas 77",tgl:tglPlus(-3),alasan:"Rapat prodi.",status:"disetujui",setuju:20,tolak:3,pemilih:24,ke:1,keberatan:[],myVote:"setuju"}
   ],
   notif:[]
 };
-try{const s=JSON.parse(localStorage.getItem("sepakat-v5")||"null");if(s&&s.pengajuan)state.pengajuan=s.pengajuan}catch(e){}
-const save=()=>{try{localStorage.setItem("sepakat-v5",JSON.stringify({pengajuan:state.pengajuan}))}catch(e){}};
+try{const s=JSON.parse(localStorage.getItem("sepakat-v6")||"null");if(s&&s.pengajuan)state.pengajuan=s.pengajuan}catch(e){}
+const save=()=>{try{localStorage.setItem("sepakat-v6",JSON.stringify({pengajuan:state.pengajuan}))}catch(e){}};
 
 // ===== Aturan bisnis (Laporan Interview 1) =====
 // persen setuju dihitung dari SELURUH mahasiswa di kelas (sama dengan database)
@@ -60,14 +72,17 @@ const hitungMundur=p=>{const n=sisaHari(p);return n<0?`Voting ditutup ${fmtTgl(b
 // Lewat H-7: voting otomatis ditutup, suara dihitung, hasil >50% langsung keluar
 function tutupVoting(p){
   p.status=lolos(p)?"disetujui":"ditolak";p.otomatis=true;
-  notifHP("SEPAKAT · Hasil voting",p.status==="disetujui"?`${mk(p.kode).nama} ${p.kelas} resmi pindah ke ${p.baru} (${fmtTgl(p.tgl)}).`:`Usulan ${mk(p.kode).nama} ${p.kelas} tidak lolos (${pct(p)}%). Jadwal tetap ${p.lama}.`);
+  notifHP("SEPAKAT · Hasil voting",p.status==="disetujui"?`${mk(p).nama} ${p.kelas} resmi pindah ke ${p.baru} (${fmtTgl(p.tgl)}).`:`Usulan ${mk(p).nama} ${p.kelas} tidak lolos (${pct(p)}%). Jadwal tetap ${p.lama}.`);
 }
 function autoTutup(){let ada=false;state.pengajuan.forEach(p=>{if(p.status==="voting"&&sisaHari(p)<0){tutupVoting(p);ada=true}});if(ada)save()}
 const MAKS=3;
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const mk=k=>MK.find(m=>m.kode===k)||{};
+const mk=p=>MK.find(m=>m.kode===p.kode&&m.kelas===p.kelas)||MK.find(m=>m.kode===p.kode)||{};
+// Filter kelas (Dosen & Fakultas/Admin)
+const fk=l=>l.filter(p=>!state.fk||p.kelas===state.fk);
+const pilihKelas=()=>`<label class="row" style="gap:6px;font-size:13px">Kelas <select id="fkelas" style="width:auto"><option value="">Semua kelas</option>${KELAS.map(k=>`<option ${k===state.fk?"selected":""}>${k}</option>`).join("")}</select></label>`;
 const pill=st=>({menunggu:'<span class="pill p-wait">Menunggu keputusan</span>',voting:'<span class="pill p-vote">Voting berjalan</span>',disetujui:'<span class="pill p-ok">Disetujui</span>',ditolak:'<span class="pill p-bad">Ditolak</span>'}[st]);
 const fr=(...ids)=>`<div class="row">${ids.map(i=>`<span class="frtag">${i}</span>`).join("")}</div>`;
 // ===== Notifikasi pop-up di layar HP/laptop (FR-01) =====
@@ -130,6 +145,7 @@ function render(){
   </div>`;
   $("#out").onclick=()=>{setSesi(null);go(null);toast("Berhasil keluar")};
   document.querySelectorAll("nav.side button").forEach(b=>b.onclick=()=>go(state.user,b.dataset.v));
+  const f=$("#fkelas");if(f)f.onchange=()=>{state.fk=f.value;render()};
   (BIND[state.user]?.[state.view]||(()=>{}))();
 }
 function countFor(k){
@@ -173,13 +189,13 @@ function voteBar(p){const v=pct(p);return `<div><div class="row" style="justify-
 function tablePengajuan(list,actions){
   if(!list.length)return `<div class="empty">Belum ada pengajuan.</div>`;
   return `<div class="tbl"><table><thead><tr><th>ID</th><th>Mata kuliah</th><th>Kelas</th><th>Perubahan</th><th>Voting</th><th>Status</th>${actions?"<th></th>":""}</tr></thead><tbody>
-  ${list.map(p=>`<tr><td class="code">${p.id}</td><td>${esc(mk(p.kode).nama)}</td><td>${p.kelas}</td><td>${esc(p.lama)}<br><b>→ ${esc(p.baru)}</b></td><td class="code">${pct(p)}%</td><td>${pill(p.status)}</td>${actions?`<td>${actions(p)}</td>`:""}</tr>`).join("")}
+  ${list.map(p=>`<tr><td class="code">${p.id}</td><td>${esc(mk(p).nama)}</td><td>${p.kelas}</td><td>${esc(p.lama)}<br><b>→ ${esc(p.baru)}</b></td><td class="code">${pct(p)}%</td><td>${pill(p.status)}</td>${actions?`<td>${actions(p)}</td>`:""}</tr>`).join("")}
   </tbody></table></div>`}
 function calendar(kelasFilter){
   const days=["Senin","Selasa","Rabu","Kamis","Jumat"];
   const items=MK.filter(m=>!kelasFilter||m.kelas===kelasFilter).map(m=>{
-    const ok=state.pengajuan.find(p=>p.kode===m.kode&&p.status==="disetujui"&&p.id!=="PJ-000");
-    const ch=ok||(m.kode==="SYS61514"?state.pengajuan.find(p=>p.id==="PJ-000"):null);
+    const ok=state.pengajuan.find(p=>p.kode===m.kode&&p.kelas===m.kelas&&p.status==="disetujui"&&p.id!=="PJ-000");
+    const ch=ok||(m.kode==="SYS61514"&&m.kelas==="SI-3A"?state.pengajuan.find(p=>p.id==="PJ-000"):null);
     if(ch){const [h,j]=ch.baru.split(" ");return {...m,hari:h,jam:j,chg:true}}return m});
   return `<div class="tbl"><div class="cal">${days.map(d=>`<div class="d">${d}</div>`).join("")}
   ${days.map(d=>`<div style="display:grid;gap:8px;align-content:start">${items.filter(i=>i.hari===d).map(i=>`<div class="c ${i.chg?"chg":""}"><b>${esc(i.nama)}</b>${i.jam} · ${i.ruang}<br><span class="code">${i.kelas}${i.chg?" · berubah":""}</span></div>`).join("")||'<div class="note">-</div>'}</div>`).join("")}
@@ -188,18 +204,19 @@ function calendar(kelasFilter){
 // ===== VIEWS =====
 const VIEWS={
  dosen:{
-  dashboard(){const mine=state.pengajuan;return `
-   <div class="head"><div><h1>Halo, ${esc(USERS.dosen.name.split(",")[0])}</h1><p>Ringkasan pengajuan perubahan jadwal Anda.</p></div><button class="btn" onclick="go('dosen','ajukan')">+ Ajukan Perubahan</button></div>
+  dashboard(){const mine=fk(state.pengajuan);return `
+   <div class="head"><div><h1>Halo, ${esc(USERS.dosen.name.split(",")[0])}</h1><p>Ringkasan pengajuan perubahan jadwal Anda di kelas ${KELAS.join(", ")}.</p></div><div class="row">${pilihKelas()}<button class="btn" onclick="go('dosen','ajukan')">+ Ajukan Perubahan</button></div></div>
    <div class="stats"><div class="stat"><span>Total pengajuan</span><b>${mine.length}</b></div><div class="stat"><span>Voting berjalan</span><b>${mine.filter(p=>p.status==="voting").length}</b></div><div class="stat"><span>Menunggu keputusan</span><b>${mine.filter(p=>p.status==="menunggu").length}</b></div><div class="stat"><span>Disetujui</span><b>${mine.filter(p=>p.status==="disetujui").length}</b></div></div>
    <div class="panel"><h2 style="font-size:16px;margin-bottom:10px">Pengajuan terbaru</h2>${tablePengajuan(mine.slice(0,3))}</div>`},
   ajukan(){return `
    <div class="head"><div><h1>Ajukan Perubahan Jadwal</h1><p>Usulan akan dikirim ke mahasiswa kelas terkait untuk voting.</p></div>${fr("FR-03","FR-04","FR-07","FR-08")}</div>
    <div class="rule"><span>ℹ</span><span>Batas pengajuan paling lambat <b>H-7</b> sebelum tanggal kuliah pengganti. Jika voting tidak lolos, pengajuan ulang maksimal <b>${MAKS}x</b>.</span></div>
    <form class="panel grid" id="fa" novalidate>
-     <label class="full" for="fmk">Mata kuliah & kelas<select id="fmk">${MK.map(m=>`<option value="${m.kode}">${m.kode} · ${esc(m.nama)} · ${m.kelas}</option>`).join("")}</select></label>
+     <label for="fkls">Kelas<select id="fkls">${KELAS.map(k=>`<option>${k}</option>`).join("")}</select></label>
+     <label for="fmk">Mata kuliah<select id="fmk"></select></label>
      <label for="flama">Jadwal saat ini<input id="flama" readonly></label>
      <label for="ftgl">Tanggal kuliah pengganti<input id="ftgl" type="date" value="${tglPlus(14)}"></label>
-     <label for="fhari">Hari baru<select id="fhari">${Object.keys(TERISI).map(h=>`<option ${h==="Selasa"?"selected":""}>${h}</option>`).join("")}</select></label>
+     <label class="full" for="fhari">Hari baru<select id="fhari">${Object.keys(TERISI).map(h=>`<option ${h==="Selasa"?"selected":""}>${h}</option>`).join("")}</select></label>
      <label for="fke">Pengajuan ke-<input id="fke" readonly></label>
      <div class="full" style="display:grid;gap:8px"><b style="font-size:12px;color:var(--muted)">Pilih ruang & slot waktu yang kosong</b>
        <div class="tbl"><div class="avail" id="grid"></div></div>
@@ -209,27 +226,27 @@ const VIEWS={
      <div class="row full"><button class="btn" type="submit">Kirim Pengajuan</button><button class="btn sec" type="reset">Batal</button></div>
    </form>`},
   riwayat(){return `
-   <div class="head"><div><h1>Status Pengajuan</h1><p>Pantau hasil voting, keberatan, dan keputusan fakultas.</p></div>${fr("FR-06","FR-09","FR-10")}</div>
-   <div class="card-list">${state.pengajuan.map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · pengajuan ke-${p.ke} · ${p.status==="voting"?hitungMundur(p):p.status==="menunggu"?"menunggu fakultas membuka voting":p.otomatis?"hasil otomatis voting "+pct(p)+"%":"selesai"}</span><h3>${esc(mk(p.kode).nama)} · ${p.kelas}</h3></div>${pill(p.status)}</div>${shiftBox(p)}${voteBar(p)}${p.keberatan.length?`<p class="note"><b>${p.keberatan.length} keberatan</b>: ${p.keberatan.map(k=>esc(k.isi)).join(" | ")}</p>`:""}</div>`).join("")}</div>`},
-  jadwal(){return `<div class="head"><div><h1>Jadwal Saya</h1><p>Jadwal mengajar minggu ini.</p></div></div><div class="panel">${calendar()}</div>`}
+   <div class="head"><div><h1>Status Pengajuan</h1><p>Pantau hasil voting, keberatan, dan keputusan fakultas.</p></div><div class="row">${pilihKelas()}${fr("FR-06","FR-09","FR-10")}</div></div>
+   <div class="card-list">${fk(state.pengajuan).map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · pengajuan ke-${p.ke} · ${p.status==="voting"?hitungMundur(p):p.status==="menunggu"?"menunggu fakultas membuka voting":p.otomatis?"hasil otomatis voting "+pct(p)+"%":"selesai"}</span><h3>${esc(mk(p).nama)} · ${p.kelas}</h3></div>${pill(p.status)}</div>${shiftBox(p)}${voteBar(p)}${p.keberatan.length?`<p class="note"><b>${p.keberatan.length} keberatan</b>: ${p.keberatan.map(k=>esc(k.isi)).join(" | ")}</p>`:""}</div>`).join("")}</div>`},
+  jadwal(){return `<div class="head"><div><h1>Jadwal Saya</h1><p>Jadwal mengajar minggu ini.</p></div>${pilihKelas()}</div><div class="panel">${calendar(state.fk)}</div>`}
  },
  mahasiswa:{
   dashboard(){const k=USERS.mahasiswa.kelas;const open=state.pengajuan.filter(p=>p.kelas===k&&p.status==="voting");return `
    <div class="head"><div><h1>Halo, ${esc(USERS.mahasiswa.name)}</h1><p>Kelas ${k} · ada ${open.filter(p=>!p.myVote).length} usulan perubahan yang butuh suara Anda.</p></div>${fr("FR-01","FR-02")}</div>
    <div class="panel" style="display:grid;gap:8px"><div class="row" style="justify-content:space-between"><h2 style="font-size:16px">Notifikasi terbaru</h2>${notifIzin()==="granted"?'<span class="pill p-ok">Notifikasi HP aktif</span>':notifIzin()==="tidak-didukung"?'<span class="note">Notifikasi HP: buka lewat website/HP</span>':'<button class="btn" type="button" id="btnNotif">Aktifkan notifikasi HP</button>'}</div>
-   ${state.pengajuan.filter(p=>p.kelas===k&&p.status!=="menunggu").map(p=>`<div class="rule" style="background:${p.status==="voting"&&!p.myVote?"var(--accent-soft)":"var(--info-soft)"}"><span>🔔</span><span>${p.status==="disetujui"?`Jadwal <b>${esc(mk(p.kode).nama)}</b> resmi pindah ke ${esc(p.baru)} (${esc(p.tgl)}).`:p.status==="ditolak"?`Usulan perubahan <b>${esc(mk(p.kode).nama)}</b> ditolak. Jadwal tetap ${esc(p.lama)}.`:`Usulan baru: <b>${esc(mk(p.kode).nama)}</b> pindah ke ${esc(p.baru)}. ${p.myVote?"Suara Anda sudah tercatat.":'<a href="#mahasiswa-voting">Beri suara</a>'}`}</span></div>`).join("")||'<div class="empty">Belum ada notifikasi.</div>'}</div>
+   ${state.pengajuan.filter(p=>p.kelas===k&&p.status!=="menunggu").map(p=>`<div class="rule" style="background:${p.status==="voting"&&!p.myVote?"var(--accent-soft)":"var(--info-soft)"}"><span>🔔</span><span>${p.status==="disetujui"?`Jadwal <b>${esc(mk(p).nama)}</b> resmi pindah ke ${esc(p.baru)} (${esc(p.tgl)}).`:p.status==="ditolak"?`Usulan perubahan <b>${esc(mk(p).nama)}</b> ditolak. Jadwal tetap ${esc(p.lama)}.`:`Usulan baru: <b>${esc(mk(p).nama)}</b> pindah ke ${esc(p.baru)}. ${p.myVote?"Suara Anda sudah tercatat.":'<a href="#mahasiswa-voting">Beri suara</a>'}`}</span></div>`).join("")||'<div class="empty">Belum ada notifikasi.</div>'}</div>
    <div class="panel"><h2 style="font-size:16px;margin-bottom:10px">Riwayat perubahan jadwal</h2>${tablePengajuan(state.pengajuan.filter(p=>p.kelas===k),p=>`<span class="note">${esc(p.alasan)}</span>`)}</div>
    <div class="panel"><h2 style="font-size:16px;margin-bottom:10px">Jadwal kelas ${k}</h2>${calendar(k)}</div>`},
   voting(){const k=USERS.mahasiswa.kelas;const list=state.pengajuan.filter(p=>p.kelas===k&&p.status==="voting");return `
    <div class="head"><div><h1>Voting Perubahan Jadwal</h1><p>Hanya usulan untuk kelas <b>${USERS.mahasiswa.kelas}</b>. Lolos jika suara setuju <b>lebih dari 50%</b> dari seluruh kelas. Voting ditutup otomatis pada <b>H-7</b>.</p></div>${fr("FR-05","FR-06","FR-10")}</div>
-   <div class="card-list">${list.length?list.map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · ${hitungMundur(p)}</span><h3>${esc(mk(p.kode).nama)}</h3></div>${pill(p.status)}</div>${shiftBox(p)}<p class="note">Alasan dosen: ${esc(p.alasan)}</p>${voteBar(p)}
+   <div class="card-list">${list.length?list.map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · ${hitungMundur(p)}</span><h3>${esc(mk(p).nama)}</h3></div>${pill(p.status)}</div>${shiftBox(p)}<p class="note">Alasan dosen: ${esc(p.alasan)}</p>${voteBar(p)}
      <div class="row">${p.myVote?`<span class="pill ${p.myVote==="setuju"?"p-ok":"p-bad"}">Suara Anda: ${p.myVote==="setuju"?"Setuju":"Tidak setuju"}</span>`:`<button class="btn ok" data-vote="setuju" data-id="${p.id}">Setuju</button><button class="btn bad" data-tolak="${p.id}">Tidak setuju</button>`}<a class="btn sec" style="text-decoration:none" href="#mahasiswa-keberatan">Ajukan keberatan</a></div>
      <div class="tolakbox" id="tb-${p.id}" hidden style="display:grid;gap:8px"><label for="ta-${p.id}">Alasan tidak setuju (wajib)<textarea id="ta-${p.id}" placeholder="contoh: Selasa sore ada jadwal kerja part-time."></textarea></label><p class="note" id="te-${p.id}" hidden style="color:var(--bad)">Alasan tidak setuju wajib diisi.</p><div class="row"><button class="btn bad" data-vote="tolak" data-id="${p.id}">Kirim suara tidak setuju</button></div></div>
      ${p.myVote==="tolak"&&p.alasanSaya?`<p class="note">Alasan Anda: ${esc(p.alasanSaya)}</p>`:""}</div>`).join(""):`<div class="panel empty">Tidak ada voting yang berjalan.</div>`}</div>`},
   keberatan(){const k=USERS.mahasiswa.kelas;const list=state.pengajuan.filter(p=>p.kelas===k&&p.status==="voting");return `
    <div class="head"><div><h1>Ajukan Keberatan</h1><p>Sampaikan alasan kendala dan opsi jadwal alternatif sebelum jadwal baru dikunci.</p></div>${fr("FR-09")}</div>
    <form class="panel grid" id="fk" novalidate>
-     <label class="full" for="kp">Usulan perubahan<select id="kp">${list.map(p=>`<option value="${p.id}">${p.id} · ${esc(mk(p.kode).nama)} → ${esc(p.baru)}</option>`).join("")||"<option value=''>Tidak ada usulan aktif</option>"}</select></label>
+     <label class="full" for="kp">Usulan perubahan<select id="kp">${list.map(p=>`<option value="${p.id}">${p.id} · ${esc(mk(p).nama)} → ${esc(p.baru)}</option>`).join("")||"<option value=''>Tidak ada usulan aktif</option>"}</select></label>
      <label for="kj">Jenis keberatan<select id="kj"><option>Bentrok dengan jadwal kuliah lain</option><option>Bentrok dengan kegiatan akademik</option><option>Kendala transportasi/waktu</option><option>Lainnya</option></select></label>
      <label for="kn">Nama<input id="kn" value="${esc(USERS.mahasiswa.name)}" readonly></label>
      <label class="full" for="kalt">Opsi jadwal alternatif (opsional)<select id="kalt"><option value="">Tidak ada</option>${Object.keys(TERISI).flatMap(h=>JAM.map(j=>`<option>${h} ${j}</option>`)).join("")}</select></label>
@@ -240,21 +257,22 @@ const VIEWS={
   jadwal(){return `<div class="head"><div><h1>Jadwal Final</h1><p>Jadwal kelas ${USERS.mahasiswa.kelas} setelah perubahan disahkan fakultas.</p></div></div><div class="panel">${calendar(USERS.mahasiswa.kelas)}</div>`}
  },
  admin:{
-  dashboard(){const P=state.pengajuan;return `
-   <div class="head"><div><h1>Dashboard Fakultas</h1><p>Pantau seluruh pengajuan perubahan jadwal.</p></div></div>
+  dashboard(){const P=fk(state.pengajuan);return `
+   <div class="head"><div><h1>Dashboard Fakultas</h1><p>Pantau pengajuan perubahan jadwal ${state.fk?"kelas "+state.fk:"seluruh kelas"}.</p></div>${pilihKelas()}</div>
+   ${state.fk?"":`<div class="tbl"><table><thead><tr><th>Kelas</th><th>Pengajuan</th><th>Voting berjalan</th><th>Perlu keputusan</th><th>Disahkan</th></tr></thead><tbody>${KELAS.map(k=>{const L=P.filter(p=>p.kelas===k);return `<tr><td><b>${k}</b></td><td>${L.length}</td><td>${L.filter(p=>p.status==="voting").length}</td><td>${L.filter(p=>p.status==="menunggu").length}</td><td>${L.filter(p=>p.status==="disetujui").length}</td></tr>`}).join("")}</tbody></table></div>`}
    <div class="stats"><div class="stat"><span>Masuk</span><b>${P.length}</b></div><div class="stat"><span>Voting berjalan</span><b>${P.filter(p=>p.status==="voting").length}</b></div><div class="stat"><span>Perlu keputusan</span><b>${P.filter(p=>p.status==="menunggu").length}</b></div><div class="stat"><span>Disahkan</span><b>${P.filter(p=>p.status==="disetujui").length}</b></div></div>
    <div class="panel"><h2 style="font-size:16px;margin-bottom:10px">Semua pengajuan</h2>${tablePengajuan(P)}</div>`},
-  keputusan(){const list=state.pengajuan.filter(p=>p.status==="menunggu"||p.status==="voting");return `
-   <div class="head"><div><h1>Keputusan Perubahan</h1><p>Fakultas membuka voting. Hasil akhir ditentukan otomatis oleh voting mahasiswa saat ditutup H-7.</p></div>${fr("FR-06","FR-08")}</div>
-   <div class="card-list">${list.length?list.map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · pengajuan ke-${p.ke} dari ${MAKS} · ${p.status==="voting"?hitungMundur(p):"belum dibuka"}</span><h3>${esc(mk(p.kode).nama)} · ${p.kelas}</h3></div>${pill(p.status)}</div>${shiftBox(p)}${p.status==="voting"?voteBar(p):""}
+  keputusan(){const list=fk(state.pengajuan).filter(p=>p.status==="menunggu"||p.status==="voting");return `
+   <div class="head"><div><h1>Keputusan Perubahan</h1><p>Fakultas membuka voting. Hasil akhir ditentukan otomatis oleh voting mahasiswa saat ditutup H-7.</p></div><div class="row">${pilihKelas()}${fr("FR-06","FR-08")}</div></div>
+   <div class="card-list">${list.length?list.map(p=>`<div class="vcard"><div class="meta"><div><span class="code">${p.id} · pengajuan ke-${p.ke} dari ${MAKS} · ${p.status==="voting"?hitungMundur(p):"belum dibuka"}</span><h3>${esc(mk(p).nama)} · ${p.kelas}</h3></div>${pill(p.status)}</div>${shiftBox(p)}${p.status==="voting"?voteBar(p):""}
      ${p.status==="voting"?`<p class="note">Perkiraan hasil saat ini: <b style="color:${lolos(p)?"var(--ok)":"var(--bad)"}">${lolos(p)?"LOLOS (>50%)":"TIDAK LOLOS"}</b> · Keberatan: ${p.keberatan.length}</p>`:""}${p.keberatan.map(k=>`<p class="note">• ${esc(k.nama)}: ${esc(k.isi)}</p>`).join("")}
      <div class="row">${p.status==="menunggu"?`<button class="btn ok" data-dec="voting" data-id="${p.id}">Buka voting</button><button class="btn bad" data-dec="ditolak" data-id="${p.id}">Tolak pengajuan</button>`:`<button class="btn sec" data-dec="tutup" data-id="${p.id}">Tutup voting sekarang (simulasi H-7)</button>`}</div></div>`).join(""):`<div class="panel empty">Semua pengajuan sudah diputuskan.</div>`}</div>`},
   rekap(){return `
-   <div class="head"><div><h1>Rekap Voting</h1><p>Persentase suara setuju per pengajuan, dihitung otomatis.</p></div>${fr("FR-06")}</div>
-   <div class="panel"><div class="tbl"><table><thead><tr><th>ID</th><th>Mata kuliah</th><th>Setuju</th><th>Tidak</th><th>Belum</th><th>%</th><th>Hasil</th></tr></thead><tbody>
-   ${state.pengajuan.map(p=>`<tr><td class="code">${p.id}</td><td>${esc(mk(p.kode).nama)}</td><td>${p.setuju}</td><td>${p.tolak}</td><td>${p.pemilih-p.setuju-p.tolak}</td><td class="code">${pct(p)}%</td><td>${lolos(p)?'<span class="pill p-ok">Lolos</span>':'<span class="pill p-bad">Tidak lolos</span>'}</td></tr>`).join("")}
+   <div class="head"><div><h1>Rekap Voting</h1><p>Persentase suara setuju per pengajuan, dihitung otomatis.</p></div><div class="row">${pilihKelas()}${fr("FR-06")}</div></div>
+   <div class="panel"><div class="tbl"><table><thead><tr><th>ID</th><th>Mata kuliah</th><th>Kelas</th><th>Setuju</th><th>Tidak</th><th>Belum</th><th>%</th><th>Hasil</th></tr></thead><tbody>
+   ${fk(state.pengajuan).map(p=>`<tr><td class="code">${p.id}</td><td>${esc(mk(p).nama)}</td><td>${p.kelas}</td><td>${p.setuju}</td><td>${p.tolak}</td><td>${p.pemilih-p.setuju-p.tolak}</td><td class="code">${pct(p)}%</td><td>${lolos(p)?'<span class="pill p-ok">Lolos</span>':'<span class="pill p-bad">Tidak lolos</span>'}</td></tr>`).join("")}
    </tbody></table></div></div>`},
-  jadwal(){return `<div class="head"><div><h1>Jadwal Final</h1><p>Jadwal seluruh kelas yang sudah disahkan.</p></div></div><div class="panel">${calendar()}</div>`}
+  jadwal(){return `<div class="head"><div><h1>Jadwal Final</h1><p>Jadwal ${state.fk?"kelas "+state.fk:"seluruh kelas"} yang sudah disahkan.</p></div>${pilihKelas()}</div><div class="panel">${calendar(state.fk)}</div>`}
  }
 };
 
@@ -262,14 +280,15 @@ const VIEWS={
 const BIND={
  dosen:{ajukan(){
   let pick=null;
-  const grid=()=>{const h=$("#fhari").value;
-    $("#grid").innerHTML=`<div class="h">Ruang</div>${JAM.map(j=>`<div class="h">${j}</div>`).join("")}`+RUANG.map(r=>`<div class="h" style="align-self:center">${r}</div>`+JAM.map(j=>{const t=terisi(h,r,j);const on=pick&&pick.r===r&&pick.j===j;return `<button type="button" data-r="${r}" data-j="${j}" ${t?"disabled":""} class="${on?"sel":""}">${t?"Terisi: "+t:on?"✓ Dipilih":"Kosong"}</button>`}).join("")).join("");
+  const grid=()=>{const h=$("#fhari").value;const cur=MK[+$("#fmk").value]||{};const bentrok=j=>MK.find(x=>x.kelas===cur.kelas&&x.hari===h&&x.jam===j);
+    $("#grid").innerHTML=`<div class="h">Ruang</div>${JAM.map(j=>`<div class="h">${j}</div>`).join("")}`+RUANG.map(r=>`<div class="h" style="align-self:center">${r}</div>`+JAM.map(j=>{const b=bentrok(j);const t=terisi(h,r,j)||(b?`${cur.kelas} ada kuliah ${b.nama}`:null);const on=pick&&pick.r===r&&pick.j===j;return `<button type="button" data-r="${r}" data-j="${j}" ${t?"disabled":""} class="${on?"sel":""}">${t?"Terisi: "+t:on?"✓ Dipilih":"Kosong"}</button>`}).join("")).join("");
     document.querySelectorAll("#grid button:not(:disabled)").forEach(b=>b.onclick=()=>{pick={r:b.dataset.r,j:b.dataset.j};$("#pilihan").innerHTML=`Dipilih: <b>${h} ${pick.j} · ${pick.r}</b>`;grid()})};
-  const upd=()=>{const m=mk($("#fmk").value);$("#flama").value=`${m.hari} ${m.jam}`;
+  const isiMK=()=>{const k=$("#fkls").value;$("#fmk").innerHTML=MK.map((m,i)=>m.kelas===k?`<option value="${i}">${m.kode} · ${esc(m.nama)} · ${m.hari} ${m.jam}</option>`:"").join("")};
+  const upd=()=>{const m=MK[+$("#fmk").value];$("#flama").value=`${m.hari} ${m.jam}`;
     const n=state.pengajuan.filter(p=>p.kode===m.kode&&p.kelas===m.kelas).length;$("#fke").value=n>=MAKS?`Batas ${MAKS}x tercapai`:`${n+1} dari ${MAKS}`};
-  $("#fmk").onchange=upd;$("#fhari").onchange=()=>{pick=null;$("#pilihan").textContent="Belum memilih slot";grid()};upd();grid();
-  $("#fa").addEventListener("reset",()=>{pick=null;setTimeout(()=>{upd();grid();$("#pilihan").textContent="Belum memilih slot";$("#ferr").hidden=true})});
-  $("#fa").addEventListener("submit",e=>{e.preventDefault();const err=$("#ferr");const m=mk($("#fmk").value);
+  $("#fkls").onchange=()=>{isiMK();pick=null;$("#pilihan").textContent="Belum memilih slot";upd();grid()};$("#fmk").onchange=()=>{upd();grid()};isiMK();$("#fhari").onchange=()=>{pick=null;$("#pilihan").textContent="Belum memilih slot";grid()};upd();grid();
+  $("#fa").addEventListener("reset",()=>{pick=null;setTimeout(()=>{isiMK();upd();grid();$("#pilihan").textContent="Belum memilih slot";$("#ferr").hidden=true})});
+  $("#fa").addEventListener("submit",e=>{e.preventDefault();const err=$("#ferr");const m=MK[+$("#fmk").value];
     const n=state.pengajuan.filter(p=>p.kode===m.kode&&p.kelas===m.kelas).length;
     const msg=!pick?"Pilih ruang dan slot waktu yang kosong terlebih dahulu.":!$("#falasan").value.trim()?"Alasan perubahan wajib diisi.":hariKe($("#ftgl").value)<=7?"Pengajuan ditolak: harus diajukan sebelum H-7 agar mahasiswa sempat voting.":n>=MAKS?`Pengajuan ditolak: sudah mencapai batas ${MAKS}x pengajuan ulang.`:"";
     if(msg){err.textContent=msg;err.hidden=false;return}
@@ -286,10 +305,10 @@ const BIND={
     p.keberatan.push({nama:USERS.mahasiswa.name,isi:`${$("#kj").value}: ${$("#ki").value.trim()}${$("#kalt").value?` (alternatif: ${$("#kalt").value})`:""}`});save();go("mahasiswa","voting");toast("Keberatan terkirim ke dosen dan fakultas")})}},
  admin:{keputusan(){document.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{const p=state.pengajuan.find(x=>x.id===b.dataset.id);
     const d=b.dataset.dec;
-    if(d==="voting"){p.status="voting";save();render();toast(`${p.id}: voting dibuka untuk kelas ${p.kelas}`);notifHP("SEPAKAT · Usulan perubahan jadwal",`${mk(p.kode).nama} (${p.kelas}) diusulkan pindah ke ${p.baru}. ${hitungMundur(p)}.`);return}
+    if(d==="voting"){p.status="voting";save();render();toast(`${p.id}: voting dibuka untuk kelas ${p.kelas}`);notifHP("SEPAKAT · Usulan perubahan jadwal",`${mk(p).nama} (${p.kelas}) diusulkan pindah ke ${p.baru}. ${hitungMundur(p)}.`);return}
     if(d==="tutup"){tutupVoting(p);save();render();toast(`${p.id}: voting ditutup. Hasil ${p.status==="disetujui"?"LOLOS, jadwal resmi pindah":"TIDAK LOLOS, jadwal tetap"}.`);return}
     p.status="ditolak";save();render();toast(`${p.id} ditolak. Dosen diberi notifikasi.`);
-    notifHP("SEPAKAT · Pengajuan ditolak",`Usulan ${mk(p.kode).nama} ditolak fakultas. Jadwal tetap ${p.lama}.`)})}}
+    notifHP("SEPAKAT · Pengajuan ditolak",`Usulan ${mk(p).nama} ditolak fakultas. Jadwal tetap ${p.lama}.`)})}}
 };
 
 route();
