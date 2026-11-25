@@ -11,19 +11,23 @@ const AKUN={"0412038801":["dosen","Siska, M.Kom."],"admin":["admin","Bagian Akad
 
 try{const k=localStorage.getItem("sepakat-kelas");if(KELAS.includes(k))USERS.mahasiswa.kelas=k}catch(e){}
 const MK=[
-  {kode:"SI2101",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3A",hari:"Senin",jam:"08.00-10.30",ruang:"FIK 2.03",peserta:24},
-  {kode:"SI2103",nama:"Basis Data",kelas:"SI-3A",hari:"Rabu",jam:"10.30-13.00",ruang:"Lab 1",peserta:24},
-  {kode:"SI2105",nama:"Pemrograman Web",kelas:"SI-3A",hari:"Kamis",jam:"13.00-15.30",ruang:"Lab 2",peserta:24}
+  {kode:"SYS61511",nama:"Organisasi dan Arsitektur Komputer",kelas:"SI-3A",hari:"Senin",jam:"10.00-12.30",ruang:"FASILKOM LAB DASAR 2",peserta:24},
+  {kode:"SYS61514",nama:"Sistem Informasi Manajemen",kelas:"SI-3A",hari:"Senin",jam:"15.00-17.30",ruang:"FASILKOM 4.77-3",peserta:24},
+  {kode:"SYS61643",nama:"Manajemen Proses Bisnis",kelas:"SI-3A",hari:"Selasa",jam:"10.00-12.30",ruang:"FASILKOM 4.80-6",peserta:24},
+  {kode:"SYS61642",nama:"Sistem Informasi Akuntansi dan Keuangan",kelas:"SI-3A",hari:"Rabu",jam:"10.00-12.30",ruang:"FASILKOM 4.80-6",peserta:24},
+  {kode:"SYS61505",nama:"Sistem Operasi",kelas:"SI-3A",hari:"Rabu",jam:"15.00-17.30",ruang:"FASILKOM 4.78-4 (A)",peserta:24},
+  {kode:"SYS61613",nama:"Analisis dan Perancangan Sistem Informasi",kelas:"SI-3A",hari:"Kamis",jam:"07.30-10.00",ruang:"FASILKOM LAB LANJUT 2",peserta:24},
+  {kode:"SYS61516",nama:"Pemrograman Berorientasi Objek",kelas:"SI-3A",hari:"Kamis",jam:"10.00-12.30",ruang:"FASILKOM LAB DASAR 1",peserta:24}
 ];
-const JAM=["08.00-10.30","10.30-13.00","13.00-15.30","15.30-18.00"];
-const RUANG=["FIK 2.03","FIK 3.01","Lab 1","Lab 2"];
-// Jadwal yang sudah terisi kegiatan perkuliahan lain (contoh)
+const JAM=["07.30-10.00","10.00-12.30","12.30-15.00","15.00-17.30"];
+const RUANG=["FASILKOM LAB DASAR 1","FASILKOM LAB DASAR 2","FASILKOM LAB LANJUT 2","FASILKOM 4.77-3","FASILKOM 4.78-4 (A)","FASILKOM 4.80-6"];
+// Jadwal yang sudah terisi: jadwal asli SI-3A + contoh kelas lain
 const TERISI={
-  "Senin":{"FIK 2.03":{"08.00-10.30":"APSI SI-3A"},"Lab 1":{"10.30-13.00":"Algoritma SI-3A"},"FIK 3.01":{"13.00-15.30":"Statistika SI-3A"}},
-  "Selasa":{"FIK 2.03":{"08.00-10.30":"Matematika Diskrit SI-3A"},"Lab 2":{"10.30-13.00":"Jaringan Komputer SI-3A"},"FIK 3.01":{"15.30-18.00":"Etika Profesi SI-3A"}},
-  "Rabu":{"Lab 1":{"10.30-13.00":"Basis Data SI-3A","13.00-15.30":"Praktikum Basis Data SI-3A"},"FIK 2.03":{"08.00-10.30":"Bahasa Inggris SI-3A"}},
-  "Kamis":{"Lab 2":{"13.00-15.30":"Pemrograman Web SI-3A"},"FIK 3.01":{"08.00-10.30":"Sistem Operasi SI-3A"}},
-  "Jumat":{"FIK 2.03":{"08.00-10.30":"Pancasila SI-3A"},"Lab 1":{"13.00-15.30":"Kewarganegaraan SI-3A"}}
+  "Senin":{"FASILKOM LAB DASAR 2":{"10.00-12.30":"Organisasi dan Arsitektur Komputer SI-3A"},"FASILKOM 4.77-3":{"15.00-17.30":"Sistem Informasi Manajemen SI-3A"},"FASILKOM 4.80-6":{"07.30-10.00":"Kuliah kelas SI-3B"}},
+  "Selasa":{"FASILKOM 4.80-6":{"10.00-12.30":"Manajemen Proses Bisnis SI-3A"},"FASILKOM LAB DASAR 1":{"07.30-10.00":"Praktikum kelas SI-3B"}},
+  "Rabu":{"FASILKOM 4.80-6":{"10.00-12.30":"Sistem Informasi Akuntansi dan Keuangan SI-3A"},"FASILKOM 4.78-4 (A)":{"15.00-17.30":"Sistem Operasi SI-3A"},"FASILKOM LAB LANJUT 2":{"12.30-15.00":"Praktikum kelas SI-3C"}},
+  "Kamis":{"FASILKOM LAB LANJUT 2":{"07.30-10.00":"Analisis dan Perancangan Sistem Informasi SI-3A"},"FASILKOM LAB DASAR 1":{"10.00-12.30":"Pemrograman Berorientasi Objek SI-3A"},"FASILKOM 4.77-3":{"12.30-15.00":"Kuliah kelas SI-3B"}},
+  "Jumat":{"FASILKOM 4.80-6":{"07.30-10.00":"Kuliah kelas SI-3C"},"FASILKOM LAB DASAR 2":{"12.30-15.00":"Praktikum kelas SI-3B"}}
 };
 const terisi=(h,r,j)=>TERISI[h]?.[r]?.[j]||null;
 // ===== Tanggal (hari ini asli dari perangkat) =====
@@ -34,15 +38,15 @@ const fmtTgl=t=>{const [y,m,d]=t.split("-");return `${d}-${m}-${y}`};
 let state={
   user:null,view:null,
   pengajuan:[
-    {id:"PJ-003",kode:"SI2105",kelas:"SI-3A",lama:"Kamis 13.00-15.30",baru:"Senin 15.30-18.00",ruang:"FIK 3.01",tgl:tglPlus(5),alasan:"Dosen menjadi pembicara workshop.",status:"voting",setuju:10,tolak:8,pemilih:24,ke:1,keberatan:[],myVote:null},
-    {id:"PJ-001",kode:"SI2101",kelas:"SI-3A",lama:"Senin 08.00-10.30",baru:"Selasa 13.00-15.30",ruang:"FIK 2.03",tgl:tglPlus(10),alasan:"Dosen mengikuti seminar nasional pada hari Senin.",status:"voting",setuju:13,tolak:2,pemilih:24,ke:1,keberatan:[{nama:"Siti N.",isi:"Bentrok dengan jadwal praktikum Basis Data kelas lain."}],myVote:null},
-    {id:"PJ-002",kode:"SI2105",kelas:"SI-3A",lama:"Kamis 13.00-15.30",baru:"Jumat 13.30-16.00",ruang:"Lab 2",tgl:tglPlus(12),alasan:"Ruang Lab 2 dipakai ujian sertifikasi.",status:"menunggu",setuju:0,tolak:0,pemilih:24,ke:1,keberatan:[],myVote:null},
-    {id:"PJ-000",kode:"SI2103",kelas:"SI-3A",lama:"Rabu 10.30-13.00",baru:"Rabu 13.00-15.30",ruang:"Lab 1",tgl:tglPlus(-3),alasan:"Rapat prodi.",status:"disetujui",setuju:20,tolak:3,pemilih:24,ke:1,keberatan:[],myVote:"setuju"}
+    {id:"PJ-003",kode:"SYS61516",kelas:"SI-3A",lama:"Kamis 10.00-12.30",baru:"Senin 12.30-15.00",ruang:"FASILKOM LAB DASAR 1",tgl:tglPlus(5),alasan:"Dosen menjadi pembicara workshop.",status:"voting",setuju:10,tolak:8,pemilih:24,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-001",kode:"SYS61613",kelas:"SI-3A",lama:"Kamis 07.30-10.00",baru:"Selasa 12.30-15.00",ruang:"FASILKOM LAB LANJUT 2",tgl:tglPlus(10),alasan:"Dosen mengikuti seminar nasional pada hari Kamis.",status:"voting",setuju:13,tolak:2,pemilih:24,ke:1,keberatan:[{nama:"Siti N.",isi:"Selasa siang bentrok dengan kegiatan organisasi."}],myVote:null},
+    {id:"PJ-002",kode:"SYS61505",kelas:"SI-3A",lama:"Rabu 15.00-17.30",baru:"Jumat 10.00-12.30",ruang:"FASILKOM 4.78-4 (A)",tgl:tglPlus(12),alasan:"Ruang dipakai ujian sertifikasi.",status:"menunggu",setuju:0,tolak:0,pemilih:24,ke:1,keberatan:[],myVote:null},
+    {id:"PJ-000",kode:"SYS61514",kelas:"SI-3A",lama:"Senin 15.00-17.30",baru:"Selasa 15.00-17.30",ruang:"FASILKOM 4.77-3",tgl:tglPlus(-3),alasan:"Rapat prodi.",status:"disetujui",setuju:20,tolak:3,pemilih:24,ke:1,keberatan:[],myVote:"setuju"}
   ],
   notif:[]
 };
-try{const s=JSON.parse(localStorage.getItem("sepakat-v4")||"null");if(s&&s.pengajuan)state.pengajuan=s.pengajuan}catch(e){}
-const save=()=>{try{localStorage.setItem("sepakat-v4",JSON.stringify({pengajuan:state.pengajuan}))}catch(e){}};
+try{const s=JSON.parse(localStorage.getItem("sepakat-v5")||"null");if(s&&s.pengajuan)state.pengajuan=s.pengajuan}catch(e){}
+const save=()=>{try{localStorage.setItem("sepakat-v5",JSON.stringify({pengajuan:state.pengajuan}))}catch(e){}};
 
 // ===== Aturan bisnis (Laporan Interview 1) =====
 // persen setuju dihitung dari SELURUH mahasiswa di kelas (sama dengan database)
@@ -175,7 +179,7 @@ function calendar(kelasFilter){
   const days=["Senin","Selasa","Rabu","Kamis","Jumat"];
   const items=MK.filter(m=>!kelasFilter||m.kelas===kelasFilter).map(m=>{
     const ok=state.pengajuan.find(p=>p.kode===m.kode&&p.status==="disetujui"&&p.id!=="PJ-000");
-    const ch=ok||(m.kode==="SI2103"?state.pengajuan.find(p=>p.id==="PJ-000"):null);
+    const ch=ok||(m.kode==="SYS61514"?state.pengajuan.find(p=>p.id==="PJ-000"):null);
     if(ch){const [h,j]=ch.baru.split(" ");return {...m,hari:h,jam:j,chg:true}}return m});
   return `<div class="tbl"><div class="cal">${days.map(d=>`<div class="d">${d}</div>`).join("")}
   ${days.map(d=>`<div style="display:grid;gap:8px;align-content:start">${items.filter(i=>i.hari===d).map(i=>`<div class="c ${i.chg?"chg":""}"><b>${esc(i.nama)}</b>${i.jam} · ${i.ruang}<br><span class="code">${i.kelas}${i.chg?" · berubah":""}</span></div>`).join("")||'<div class="note">-</div>'}</div>`).join("")}
@@ -229,7 +233,7 @@ const VIEWS={
      <label for="kj">Jenis keberatan<select id="kj"><option>Bentrok dengan jadwal kuliah lain</option><option>Bentrok dengan kegiatan akademik</option><option>Kendala transportasi/waktu</option><option>Lainnya</option></select></label>
      <label for="kn">Nama<input id="kn" value="${esc(USERS.mahasiswa.name)}" readonly></label>
      <label class="full" for="kalt">Opsi jadwal alternatif (opsional)<select id="kalt"><option value="">Tidak ada</option>${Object.keys(TERISI).flatMap(h=>JAM.map(j=>`<option>${h} ${j}</option>`)).join("")}</select></label>
-     <label class="full" for="ki">Alasan keberatan<textarea id="ki" placeholder="contoh: Selasa 13.00 bentrok dengan Statistika kelas SI-3A."></textarea></label>
+     <label class="full" for="ki">Alasan keberatan<textarea id="ki" placeholder="contoh: Selasa 12.30 bentrok dengan kegiatan organisasi."></textarea></label>
      <p class="note full" id="kerr" hidden style="color:var(--bad)">Alasan keberatan wajib diisi.</p>
      <div class="row full"><button class="btn" type="submit">Kirim Keberatan</button></div>
    </form>`},
