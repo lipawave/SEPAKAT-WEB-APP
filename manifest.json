@@ -1,0 +1,15 @@
+{
+  "name": "SEPAKAT - Sistem Penyesuaian Jadwal Kuliah Terpadu",
+  "short_name": "SEPAKAT",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f7f3f3",
+  "theme_color": "#8b1a1f",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
